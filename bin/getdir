@@ -1,0 +1,22 @@
+#!/bin/bash 
+##########################################################################
+# Name:         getdir
+# Description:  prints the directory of the currently running script
+# Usage:        getdir_source_file returns the directory where this file 
+#               located if the script is run directly
+#               
+#               getdir_sourcing_file returns 
+# Notes:        See https://bit.ly/2S08OY2 for more background.
+##########################################################################
+
+getdir_source_file() {
+    DIR="$(cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd)"
+    echo "$DIR"
+}
+
+getdir_sourcing_file() {
+    DIR="$(cd "$( dirname "$0" )" >/dev/null 2>&1 && pwd)"
+    echo "$DIR"    
+}
+
+# getdir_source_file

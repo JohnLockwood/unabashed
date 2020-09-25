@@ -1,0 +1,37 @@
+#!/bin/bash 
+################################################################
+# Name:        sb (Script Bash)
+# Description: Creates an executable bash script file based
+#              on a template, and loads it into an editor. 
+# Usage:       sb <filename>
+################################################################
+
+# Parse arg.  If not given, exit
+file="$1"
+test ! "$file"  && echo "Usage: $(basename $0) <filename>" && exit 99
+if [ -s "$EDITOR" ]
+then
+    echo "Using editor $EDITOR set in environment"
+else
+    EDITOR=code
+    echo "Using editor $EDITOR set in script"
+fi    
+
+if [  -e "$file" ]; then
+    echo "Error, file $file exists.  Cowardly refusing to overwrite it"
+    exit 99
+fi
+
+echo "#!/bin/bash 
+##########################################################################
+# Name:         $file
+# Description: 
+# Usage: 
+##########################################################################
+
+echo 'Hello world!'
+" > "$file"
+
+chmod u+x "$file"
+
+$EDITOR "$file"

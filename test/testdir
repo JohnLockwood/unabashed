@@ -1,0 +1,12 @@
+#!/bin/bash 
+##########################################################################
+# Name:         testdir
+# Description:  Tests getdir from another directory
+# Usage:        testdir
+##########################################################################
+
+source ..bin/getdir
+getdir_source_file
+getdir_sourcing_file
+
+
