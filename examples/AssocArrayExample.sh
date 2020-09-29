@@ -3,8 +3,9 @@
 declare -A vals
 
 vals[stooge]=Shemp
-vals[name]=John   
 
+# Reference an array passed in as an argument.  This is a bit of demo-ish overkill, 
+# since we could have modified the global associative array directly.
 change_stooge() {
     # Works in 4.3 or later cf 
     # https://bit.ly/2FAeuFP
@@ -13,7 +14,9 @@ change_stooge() {
     arr[stooge]=Curly
 }
 
-change_stooge
+echo "Nobody likes watching the Three Stoges and getting a ${vals[stooge]}."
 
-echo "Nobody likes watching the Three Stoges and getting a ${vals[stooge]}"
-echo "${vals[name]}'s favorite stooge is ${vals[stooge]}"
+change_stooge vals
+
+echo "Everybody wants to watch one with ${vals[stooge]} in it."
+
