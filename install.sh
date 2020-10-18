@@ -11,6 +11,9 @@
 
 echo "Directory is: $(pwd)"
 
+echo "SEE README -- DO NOT USE"
+exit 42
+
 if [[ "$uab" != "" ]] 
 then
     echo -e "\033[0;91mUnabased variable uab already set to $uab."
